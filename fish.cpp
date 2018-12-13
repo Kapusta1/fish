@@ -4,7 +4,7 @@ using namespace std;
 class Fish
 {
 public:
-	void Swim()
+	virtual void Swim()
 	{
 		cout << "Fish Swim!! " << endl;
 	}
@@ -19,6 +19,15 @@ public:
 	}
 };
 
+class Carp : public Fish
+{
+public:
+	void Swim()
+	{
+		cout << "Carp swims !" << endl;
+	}
+};
+
 void MakeFishswim(Fish & inputFish)
 {
 	inputFish.Swim();
@@ -27,8 +36,10 @@ void MakeFishswim(Fish & inputFish)
 int main()
 {
 	Tuna myDinner;
+	Carp myLunch;
 	myDinner.Swim();
 
 	MakeFishswim(myDinner);
+	MakeFishswim(myLunch);
 	return 0;
 }
